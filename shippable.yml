@@ -5,11 +5,17 @@ jdk:
   # - openjdk6
    #- openjdk7
 
+services: 
+   - mysql
+   
+build_image: drydock/u12javpls:tip
+
 after_success:
    - mvn clean cobertura:cobertura
    - mvn test
+   
 notifications:
   email:
    varsha@shippable.com
    
-archive; true
+archive: true
